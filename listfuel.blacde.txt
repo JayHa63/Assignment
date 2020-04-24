@@ -1,0 +1,83 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <a class='btn btn-primary' href="{{route('fuelquote.create')}}">Create Fuel Quote</a>
+            <div class="card">
+                <div class="card-header">List Fuel</div>
+
+                
+
+                <div class="card-body mb-5 mt-0 py-0">
+                 <table class="table panel panel-default">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th> 
+                                <th scope="col">Location</th> 
+                                 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php $i = 1; ?>
+                            @foreach ($data['fuels'] as $val)
+                                <tr>
+                                    <td>{{ $i }}</td>
+                                    <td>{{$val->fuel_name}}</td>
+                                    <td>{{$val->fuel_price}}</td>
+                                    <td>{{$val->location}}</td>
+                                     
+                                    
+                                </tr>
+                                 <?php $i++; ?>
+                             @endforeach
+                        </tbody>
+                    </table>
+                    {{ $data['fuels']->render() }}
+
+
+                </div>
+            </div>
+        </div>
+        <br>
+            
+
+            <div class = "row mt-2">
+                
+                <div class = "col-md-4 col-sm-6 p-5">
+                    <h3 class ="title_home"><b>Fuel Rate</b></h3>
+                    <div class = "thumbnail">
+                        <a href="{{route('fuelquote.create')}}"><img src="fuelimage/img/rate.jpg"></a>
+                    </div>              
+                </div>
+               
+                <div class = "col-md-4 col-sm-6 p-5">
+                    <h3 class ="title_home"><b>Profile</b></h3>
+                    <div class = "thumbnail">
+                        <a href="profile.html"><img src="fuelimage/img/profile.jpg"></a>
+                    </div>                  
+                </div>
+               
+                <div class = "col-md-4 col-sm-6 p-5">
+                    <h3 class ="title_home"><b>History</b></h3>
+                    <div class = "thumbnail">
+                        <a href="history.html"><img src="fuelimage/img/history.jpg"></a>
+                    </div>
+                </div>
+                
+
+
+                <div class="row">
+                    <div class="col-12 ">
+                        <p></p>
+                    </div>
+                </div>
+            </div>  
+
+    </div>
+
+</div>
+@endsection
